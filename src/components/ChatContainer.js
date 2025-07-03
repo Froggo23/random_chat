@@ -19,10 +19,12 @@ export default function ChatContainer() {
 
     useEffect(() => {
         const socketInitializer = async () => {
-            socket = io();
+            socket = io({
+                path: '/api/socket',
+            });
 
             socket.on('connect', () => {
-                setIsConnected(true);
+                FsetIsConnected(true);
             });
 
             socket.on('message', (msg) => {
